@@ -1,6 +1,6 @@
-import mysql from 'mysql';
+// import mysql from 'mysql';
 
-// const mysql = require('mysql');
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -15,3 +15,8 @@ connection.connect((err) => {
         console.log('Connected to MySQL');
     }
 });
+
+connection.query('SELECT COUNT(*) FROM beer.article', (err, result) => {
+    console.log(result);
+})
+connection.end();
